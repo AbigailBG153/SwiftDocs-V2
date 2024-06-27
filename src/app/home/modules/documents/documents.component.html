@@ -1,0 +1,84 @@
+<h1>Mis Documentos</h1>
+<div class="create-btn">
+    <label class="btn-doc btn-ex">
+        <input type="file" style="display: none;" (change)="onFileSelected($event)" accept=".pdf,.doc,.docx,.txt">
+        <div class="button-content">
+            <i class='bx bx-upload'></i>
+            <p>Subir documentos</p>
+        </div>
+    </label>
+</div>
+
+<div class="bottom-data">
+    <div class="List_table">
+        <div class="header">
+            <i class='bx bx-receipt'></i>
+            <h3>Lista de Documentos </h3>
+            <i class='bx bx-filter'></i>
+            <i class='bx bx-search'></i>
+        </div>
+        <table>
+            <thead>
+                <tr>
+                    <th>Nombre</th>
+                    <th>Tipo</th>
+                    <th>Propietario</th>
+                    <th>Opciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let document  of documents">
+                    <td>{{ document.filename }}</td>
+                    <td>{{ document.tipo.split('/').pop() }}</td>
+                    <td>{{document.nombre_user}}</td>
+                    <td>
+                        <div class="table-button-container">
+                            <button class="btn btn-doc" (click)="viewDocument(document._id)">Ver</button>
+                            <button class="btn btn-doc" (click)="toggleShareSelect(document)">
+                                {{ document.showShareSelect ? 'Cancelar' : 'Compartir' }}
+                              </button>
+                              <div *ngIf="document.showShareSelect" class="share-select">
+                                <select [(ngModel)]="document.selectedUser">
+                                  <option *ngFor="let user of users" [value]="user._id">{{ user.username }}</option>
+                                </select>
+                                <button (click)="shareDocument(document._id, document.selectedUser)">Compartir</button>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<div class="bottom-data">
+    <div class="List_table">
+        <div class="header">
+            <i class='bx bx-receipt'></i>
+            <h3>Documentos compartidos conmigo </h3>
+            <i class='bx bx-filter'></i>
+            <i class='bx bx-search'></i>
+        </div>
+        <table>
+            <thead>
+                <tr>
+                    <th>Nombre</th>
+                    <th>Propietario</th>
+                    <th>Opciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let document  of sharedWithMe">
+                    <td>{{ document.filename  }}</td>
+                    <td>{{ document.uploadedBy}}</td>
+                    <td>
+                        <div class="table-button-container">
+                            <button class="btn btn-doc" (click)="viewDocument(document._id)">Ver</button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+

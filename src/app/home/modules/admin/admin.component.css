@@ -1,0 +1,104 @@
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  .column {
+    flex: 1;
+    min-width: 400px;
+  }
+  
+  h2, h3 {
+    text-align: center;
+    color: #333;
+  }
+  
+  .custom-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    font-size: 18px;
+    text-align: left;
+  }
+  
+  .custom-table thead tr {
+    background-color: #009879;
+    color: #ffffff;
+    text-align: left;
+  }
+  
+  .custom-table th,
+  .custom-table td {
+    padding: 12px 15px;
+  }
+  
+  .custom-table tbody tr {
+    border-bottom: 1px solid #dddddd;
+  }
+  
+  .custom-table tbody tr:nth-of-type(even) {
+    background-color: #f3f3f3;
+  }
+  
+  .custom-table tbody tr:last-of-type {
+    border-bottom: 2px solid #009879;
+  }
+  
+  .input-field {
+    padding: 10px;
+    margin-right: 10px;
+    margin-top: 10px;
+    width: calc(100% - 22px);
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  .btn {
+    padding: 10px 20px;
+    margin-top: 10px;
+    margin-right: 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    color: #fff;
+  }
+  
+  .btn-primary {
+    background-color: #007bff;
+  }
+  
+  .btn-danger {
+    background-color: #dc3545;
+  }
+  
+  .btn-secondary {
+    background-color: #6c757d;
+  }
+  
+  .btn-success {
+    background-color: #28a745;
+  }
+  
+  .btn:hover {
+    opacity: 0.8;
+  }
+  
+  .form {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .form .input-field {
+    width: 100%;
+  }
+  
+  .form button {
+    align-self: center;
+  }
+  

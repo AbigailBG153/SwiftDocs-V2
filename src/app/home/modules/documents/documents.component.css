@@ -1,0 +1,181 @@
+/* Estilos para el formulario dentro del modal */
+
+@import url('../../../app.component.css');
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #333;
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-control {
+    width: 100%;
+    padding: 12px;
+    font-size: 16px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    transition: border-color 0.3s ease-in-out;
+    background-color: #f9f9f9;
+    color: #333;
+}
+
+.form-control:focus {
+    outline: none;
+    border-color: #007bff;
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+
+.btn-primary {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 12px 20px;
+    cursor: pointer;
+    border-radius: 6px;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.btn-primary:hover {
+    background-color: #0056b3;
+}
+
+.modal-body {
+    padding: 20px;
+}
+
+.modal-content {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
+
+.modal-header {
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 15px;
+    margin-bottom: 15px;
+}
+
+.modal-header h2 {
+    margin-top: 0;
+    font-size: 24px;
+    color: #333;
+}
+
+/* Estilo para el selector */
+select.form-control {
+    width: 100%;
+    padding: 12px;
+    font-size: 16px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    transition: border-color 0.3s ease-in-out;
+    background-color: #f9f9f9;
+    color: #333;
+    max-height: 200px;
+    /* Altura máxima para el despliegue de opciones */
+    overflow-y: auto;
+    /* Scroll vertical si se supera la altura máxima */
+}
+
+select.form-control:focus {
+    outline: none;
+    border-color: #007bff;
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+
+select.form-control option {
+    font-size: 16px;
+    padding: 8px;
+    /* Espaciado interior de las opciones */
+    white-space: nowrap;
+    /* Evita el salto de línea */
+    overflow: hidden;
+    /* Oculta el contenido que se desborda */
+    text-overflow: ellipsis;
+    /* Muestra puntos suspensivos si el texto es demasiado largo */
+}
+
+select.form-control option:hover {
+    background-color: #f0f0f0;
+}
+
+select.form-control option:checked {
+    background-color: #007bff;
+    color: white;
+}
+
+
+.owner {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.owner img {
+    margin-right: 8px;
+    /* Ajusta el espacio entre la imagen y el texto */
+}
+
+.owner p {
+    margin: 0;
+    font-size: 14px;
+    /* Ajusta el tamaño del texto si es necesario */
+}
+
+.bottom-data .List_table table td img {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+
+.table-container {
+    overflow-x: auto;
+     /* Permite el desplazamiento horizontal si es necesario */
+}
+
+.table-button-container {
+    position: relative;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    padding: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    z-index: 100; /* Asegura que el dropdown esté encima de la tabla */
+    min-width: 120px;
+    top: 0; /* Ajusta la posición vertical del dropdown */
+    right: calc(100% + 10px); /* Coloca el dropdown a la derecha del botón con un espacio de 10px */
+}
+
+.dropdown-menu.show {
+    display: block; /* Muestra el dropdown cuando la clase 'show' está presente */
+}
+
+
+
+.dropdown-item {
+    display: block;
+    padding: 8px 10px;
+    text-decoration: none;
+    color: #333;
+}
+
+.dropdown-item:hover {
+    background-color: #f0f0f0;
+}

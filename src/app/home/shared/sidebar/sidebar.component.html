@@ -1,0 +1,35 @@
+<div class="sidebar">
+    <a href="#" class="logo">
+        <img class="logo-img "  (click)="open($event)" src="IMG/Index/logo-icon-azul.png" width="60" height="60" alt="NutriLife-Home">
+        <div class="logo-name"><span>Swift</span><span style="color: #1F73C8;">Docs</span></div>
+        <button class="sidebar-close-btn " (click)="close($event)"><i class='bx bx-x'></i></button>
+    </a>
+    <ul class="side-menu">
+        <!-- #region 
+        <li class="link-active" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+            <a routerLink="/home/dashboard"><i class='bx bxs-dashboard'></i>Dashboard</a>
+        </li> 
+         <li routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+            <a routerLink="/home/task"><i class='bx bxs-check-square'></i>Tareas</a>
+        </li>
+        <li routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+            <a routerLink="/home/audits"><i class='bx bxs-bar-chart-alt-2'></i>Auditorias</a>
+        </li>
+         -->  
+        <li routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+            <a routerLink="/home/documents"><i class='bx bxs-file'></i>Documentos</a>
+        </li>
+       
+        <li routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+            <a routerLink="/home/admin"><i class='bx bxs-cog'></i>Administración</a>
+        </li>
+    </ul>
+    <ul class="side-menu">
+        <li>
+            <a class="logout" (click)="logout_($event)">
+                <i class='bx bx-log-out-circle'></i>
+                Logout
+            </a>
+        </li>
+    </ul>
+</div>

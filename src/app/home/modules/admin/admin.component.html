@@ -1,0 +1,113 @@
+<div class="container">
+    <h2>Áreas</h2>
+    <table class="custom-table">
+      <thead>
+        <tr>
+            <th>Id</th>
+          <th>Nombre</th>
+          <th>Sucursal</th>
+          <th>Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let area of areas">
+            <td>{{ area._id }}</td>
+          <td>{{ area.name }}</td>
+          <td>{{ area.branch.name }}</td>
+          <td>
+            <input type="text" [(ngModel)]="area.newName" placeholder="Nuevo nombre" name="areaNewName" class="input-field">
+            <select [(ngModel)]="area.newBranchId" name="areaNewBranchId" class="input-field" required>
+              <option *ngFor="let sucursal of sucursales" [value]="sucursal._id">{{ sucursal.name }}</option>
+            </select>
+            <button (click)="actualizarArea(area._id, area.newName)" class="btn btn-primary">Actualizar</button>
+            <button (click)="eliminarArea(area._id)" class="btn btn-danger">Eliminar</button>
+            <button (click)="loadUsuariosPorArea(area._id)" class="btn btn-secondary">Ver Usuarios</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  
+    <input type="text" [(ngModel)]="nuevaAreaNombre" placeholder="Nombre de nueva área" name="nuevaAreaNombre" class="input-field">
+    <select [(ngModel)]="selectedSucursalId" name="selectedSucursalId" class="input-field" required>
+      <option *ngFor="let sucursal of sucursales" [value]="sucursal._id">{{ sucursal.name }}</option>
+    </select>
+    <button (click)="crearArea()" class="btn btn-success">Crear Área</button>
+  
+    <h3>Usuarios por Área</h3>
+    <ul>
+      <li *ngFor="let usuario of usuariosPorArea">
+        {{ usuario.username }}
+      </li>
+    </ul>
+  </div>
+  
+  <div class="container">
+    <h2>Sucursales</h2>
+    <table class="custom-table">
+      <thead>
+        <tr>
+            <th>Id</th>
+          <th>Nombre</th>
+          <th>Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let sucursal of sucursales">
+            <td>{{ sucursal._id }}</td>
+          <td>{{ sucursal.name }}</td>
+          <td>
+            <input type="text" [(ngModel)]="sucursal.newName" placeholder="Nuevo nombre" name="sucursalNewName" class="input-field">
+            <button (click)="actualizarSucursal(sucursal._id, sucursal.newName)" class="btn btn-primary">Actualizar</button>
+            <button (click)="eliminarSucursal(sucursal._id)" class="btn btn-danger">Eliminar</button>
+            <button (click)="loadAreasPorSucursal(sucursal._id)" class="btn btn-secondary">Ver Áreas</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  
+    <input type="text" [(ngModel)]="nuevoNombreSucursal" placeholder="Nombre de nueva sucursal" name="nuevoNombreSucursal" class="input-field">
+    <button (click)="crearSucursal()" class="btn btn-success">Crear Sucursal</button>
+  
+    <h3>Áreas por Sucursal</h3>
+    <ul>
+      <li *ngFor="let area of areasPorSucursal">
+        {{ area.name }}
+      </li>
+    </ul>
+  </div>
+  
+  <div class="container">
+    <h2>Registrar Nuevo Usuario</h2>
+    <form (ngSubmit)="registrarUsuario()" class="form">
+      <input type="text" [(ngModel)]="nuevoUsuarioUsername" placeholder="Nombre de usuario" name="nuevoUsuarioUsername" class="input-field" required>
+      <input type="password" [(ngModel)]="nuevoUsuarioPassword" placeholder="Contraseña" name="nuevoUsuarioPassword" class="input-field" required>
+      <select [(ngModel)]="selectedAreaId" name="selectedAreaId" class="input-field" required>
+        <option *ngFor="let area of areas" [value]="area._id">{{ area.name }}</option>
+      </select>
+      <select [(ngModel)]="selectedBranchId" name="selectedBranchId" class="input-field" required>
+        <option *ngFor="let sucursal of sucursales" [value]="sucursal._id">{{ sucursal.name }}</option>
+      </select>
+      <button type="submit" class="btn btn-success">Registrar Usuario</button>
+    </form>
+  </div>
+  
+  <div class="container">
+    <h2>Usuarios Registrados</h2>
+    <table class="custom-table">
+      <thead>
+        <tr>
+          <th>Usuario</th>
+          <th>Área</th>
+          <th>Sucursal</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let usuario of users">
+          <td>{{ usuario.username }}</td>
+          <td>{{ usuario.area }}</td>
+          <td>{{ usuario.branch}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  

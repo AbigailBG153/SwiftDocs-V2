@@ -1,0 +1,104 @@
+<nav>
+    <form action="#">
+        <div class="form-input">
+            <input type="search" placeholder="Search...">
+            <button class="search-btn" type="submit"><i class='bx bx-search'></i></button>
+        </div>
+    </form>
+    <input type="checkbox" id="theme-toggle" hidden>
+    <label for="theme-toggle" class="theme-toggle"></label>
+    <a href="#" class="notif">
+        <i class='bx bx-bell'></i>
+        <span class="count">12</span>
+    </a>
+    <a class="profile" (click)="open($event)">
+        <img  src="IMG/Index/profile-1.jpg">
+    </a>
+</nav>
+<div class="modal">
+    <div class="modal-content perfil-content">
+        <span class="close" (click)="close($event)">&times;</span>
+        <div class="information">
+            <h2>Perfil</h2>
+            <div class="header perfil-header">
+                <div class="profile-info">
+                    <div class="profile-image">
+                        <img *ngIf="user?.photoUrl; else initialImage" [src]="user.photoUrl" alt="Foto de Perfil">
+                        <ng-template #initialImage>
+                            <div class="initial-avatar">{{ userInitial }}</div>
+                        </ng-template>
+                    </div>
+                </div>
+            </div>
+            <div class="perfil-body">
+                <div class="bottom-data">
+                    <div class="List_table">
+                        <div class="header">
+                            <i class='bx bx-receipt'></i>
+                            <h3>Detalles</h3>
+                            <i class='bx bxs-edit' (click)="toggleEditMode()"></i>
+                        </div>
+                        <table>
+                            <tbody>
+                                <tr>
+                                    <td><strong>Nombre:</strong></td>
+                                    <td>
+                                        <span *ngIf="!isEditMode">{{ user?.username }}</span>
+                                        <input *ngIf="isEditMode" [(ngModel)]="user.username" />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Correo Electrónico:</strong></td>
+                                    <td>
+                                        <span *ngIf="!isEditMode">{{ user?.email }}</span>
+                                        <input *ngIf="isEditMode" [(ngModel)]="user.email" />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Teléfono:</strong></td>
+                                    <td>
+                                        <span *ngIf="!isEditMode">{{ user?.telefono }}</span>
+                                        <input *ngIf="isEditMode" [(ngModel)]="user.telefono" />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Cargo:</strong></td>
+                                    <td>{{ user?.cargo }}</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Área:</strong></td>
+                                    <td>{{ user?.area }}</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Sucursal:</strong></td>
+                                    <td>{{ user?.sucursal }}</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Ultima Modificacion:</strong></td>
+                                    <td>{{ user?.fecha_modificacion | date:'dd/MM/yyyy , HH:mm' }}</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Último Acceso:</strong></td>
+                                    <td>{{ user?.ultimo_acceso | date:'dd/MM/yyyy , HH:mm' }}</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Fecha de Finalizacion:</strong></td>
+                                    <td>{{ user?.fecha_finalizacion | date:'dd/MM/yyyy , HH:mm' }}</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Estado:</strong></td>
+                                    <td><span class="status pending">{{ user?.estado }}</span></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <div *ngIf="isEditMode" class="button-content">
+                            <button class="btn-doc" (click)="saveChanges()">Guardar</button>
+                            <button class="btn-doc"  (click)="cancelChanges()">Cancelar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

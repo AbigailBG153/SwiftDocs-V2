@@ -1,0 +1,38 @@
+<div class="container-general">
+    <!-- signin.component.html -->
+
+    <div class="container">
+        <div class="form-container sign-in">
+            <form (ngSubmit)="login(username.value, password.value)">
+                <h1>Iniciar Sesión</h1>
+                <input type="username" placeholder="Usuario" #username required>
+                <input type="password" placeholder="Contraseña" class="form-control" #password required>
+                <a href="#">¿Olvidaste tu contraseña?</a>
+                <button type="submit">Iniciar Sesión</button>
+            </form>
+        </div>
+        <div class="toggle-container">
+            <div class="toggle">
+                <div class="toggle-panel toggle-right">
+                    <img src="./IMG/Login/logo-terramine.png" alt="Logo Terramine">
+                    <p>Ingrese sus credenciales para acceder a todas las funcionalidades de nuestra plataforma.</p>
+                    <button class="hidden">
+                        <div class="button-content">
+                            <i class="bx bx-briefcase"></i>
+                            <span>IT-SERVICE</span>
+                        </div>
+                    </button>
+
+                    <button class="hidden">
+                        <div class="button-content">
+                            <i class="bx bx-envelope"></i>
+                            <span>CORREO</span>
+                        </div>
+                    </button>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
